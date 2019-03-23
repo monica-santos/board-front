@@ -34,8 +34,6 @@ export default class SimpleCard extends Component {
   }
 
   render() {
-    console.log("CARD");
-    console.log(this.props.content);
     const { id, name, description, user } = this.props.content
 
     return (
@@ -51,7 +49,8 @@ export default class SimpleCard extends Component {
         </div>
         <div className="board-line">
           <p className="card-description card-text">{description}</p>
-          <div className="user-initial">{user.name[0]}</div>
+          { user && user.name ? <div className="user-initial">{user.name[0]}</div> : null }
+          
         </div>
         </div>
       </Fragment>

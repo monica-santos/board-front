@@ -14,7 +14,7 @@ export default class Board extends Component {
   render() {
     return (
       <Query query={BoardData}>
-        {({ loading, error, data }) => {
+        {({ loading, error, data, refetch }) => {
           if (loading) return 'Loading...';
           if (error) return `Error! ${error.message}`;
           const { board } = data
@@ -27,7 +27,7 @@ export default class Board extends Component {
                     <h2>{ board.name }</h2>
                 </div>
                 <div className="board-line">
-                  { board.lists.map(list => <List key={list.id} content={list} />) }
+                  { board.lists.map(list => <List key={list.id} content={list} refresh={refetch} />) }
                 </div>
               </div>
               <div className="board-footer">
