@@ -2,9 +2,6 @@ import React, { Component, Fragment } from 'react'
 import './SimpleCard.css'
 import MdEdit from 'react-icons/lib/md/edit'
 
-import { Modal, Button } from 'react-bootstrap';
-
-
 export default class SimpleCard extends Component {
   constructor(props) {
     super(props)
@@ -37,8 +34,9 @@ export default class SimpleCard extends Component {
   }
 
   render() {
+    console.log("CARD");
     console.log(this.props.content);
-    const { id, name, description } = this.props.content
+    const { id, name, description, user } = this.props.content
 
     return (
       <Fragment>
@@ -47,9 +45,14 @@ export default class SimpleCard extends Component {
           onMouseLeave={this.toggleEditIcon}
           onClick={() => this.openDetails(id)}
         >
+        <div className="board-line">
           <h2 className="card-title card-text">{name}</h2>
           <MdEdit className={`edit-icon ${this.state.showIcon ? "show" : "hide"}`} />
+        </div>
+        <div className="board-line">
           <p className="card-description card-text">{description}</p>
+          <div className="user-initial">{user.name[0]}</div>
+        </div>
         </div>
       </Fragment>
     )

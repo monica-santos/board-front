@@ -18,6 +18,9 @@ const BoardData = gql`
           id
           name
           description
+          user {
+            name
+          }
           comments {
             id
             content

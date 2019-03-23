@@ -1,7 +1,6 @@
-import React, { Component, Fragment } from 'react'
-import { Container, Row, Col } from 'react-bootstrap';
+import React, { Component } from 'react'
 import MdKeyboardControl from 'react-icons/lib/md/keyboard-control';
-
+import './style.css'
 import SimpleCard from '../card/SimpleCard'
 
 export default class List extends Component {
@@ -11,22 +10,14 @@ export default class List extends Component {
   }
 
   render() {
-    console.log(this.props.content)
-    const { id, name, cards } = this.props.content
+    const { name, cards } = this.props.content
     return (
-      <Fragment>
-        <Row>
+      <div className="board-list">
+        <div className="board-line">
           <h4>{name}</h4> <MdKeyboardControl />
-        </Row>
-        { cards.map(card => {
-          return (
-            <Col key={card.id}>
-              <SimpleCard content={card} />
-            </Col>
-            )
-          })}
-
-      </Fragment>
+        </div>
+        { cards.map(card => <SimpleCard key={card.id} content={card} />) }
+      </div>
     )
   }
 }

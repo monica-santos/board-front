@@ -23,7 +23,7 @@
 
 .card-description {
   font-size: 14px;
-  width: 260px;
+  width: 230px;
 }
 
 .edit-icon {
@@ -38,4 +38,16 @@
 
 .show {
   display: inline-block;
+}
+
+.user-initial {
+  position: absolute;
+  top: 50px;
+  right: 15px;
+  font-weight: 500;
+  background-color: #dfe3e6;
+  border-radius: 15px;
+  width: 25px;
+  height: 25px;
+  text-align: center;
 }
