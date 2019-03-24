@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Query } from 'react-apollo'
 
-import './style.css'
+import './Content.css'
 import ContentQuery from './ContentQuery'
 import List from '../list/List'
 

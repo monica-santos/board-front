@@ -5,3 +5,8 @@
   padding: 10px;
   border-radius: 5px;
 }
+
+.list-header {  
+  display: flex;
+  justify-content: space-between;
+}
