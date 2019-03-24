@@ -11,6 +11,8 @@ const ContentData = gql`
         description
         user {
           name
+          username
+          email
         }
         comments {
           id

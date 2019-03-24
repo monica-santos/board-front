@@ -10,6 +10,8 @@ const BoardData = gql`
       users {
         id
         name
+        username
+        email
       }
     }
   }

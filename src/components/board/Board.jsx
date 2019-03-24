@@ -3,8 +3,9 @@ import { Query } from 'react-apollo'
 import { css } from '@emotion/core';  
 import { ClipLoader } from 'react-spinners';
 
-import './style.css'
+import './Board.css'
 import BoardData from './BoardQuery'
+import UserIcon from '../user/UserIcon'
 import Content from '../content/Content'
 
 const override = css`
@@ -43,6 +44,7 @@ class Board extends Component {
             <div className="board-container full" style={{ background: `${board.backgroundColor} no-repeat center center fixed` }}>
               <div className="board-header">
                 <h2>{ board.name }</h2>
+                  { board.users.map(user => <UserIcon user={user} key={user.id} />) }
               </div>
               <Content />
               <div className="board-footer">
