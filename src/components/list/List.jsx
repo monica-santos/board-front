@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import MdKeyboardControl from 'react-icons/lib/md/keyboard-control';
 import './List.css'
 import SimpleCard from '../card/SimpleCard'
-import AddCard from '../addCard/AddCard'
+import AddCard from '../card/AddCard'
 
 class List extends Component {
   constructor(props) {
