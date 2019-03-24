@@ -1,0 +1,13 @@
+.user-initial {
+  position: absolute;
+  top: 50px;
+  right: 15px;
+  line-height: 1.8;
+  font-size: 13px;
+  font-weight: 500;
+  background-color: #dfe3e6;
+  border-radius: 15px;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+}

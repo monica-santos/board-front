@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import './SimpleCard.css'
 import MdEdit from 'react-icons/lib/md/edit'
+import UserIcon from '../user/UserIcon'
 
 class SimpleCard extends Component {
   constructor(props) {
@@ -49,7 +50,7 @@ class SimpleCard extends Component {
         </div>
         <div className="board-line">
           <p className="card-description card-text">{description}</p>
-          { user && user.name ? <div className="user-initial">{user.name[0]}</div> : null }
+          <UserIcon user={user} />
           
         </div>
         </div>
