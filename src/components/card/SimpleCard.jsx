@@ -50,8 +50,7 @@ class SimpleCard extends Component {
         </div>
         <div className="board-line">
           <p className="card-description card-text">{description}</p>
-          <UserIcon user={user} />
-          
+          <div className="user-position"><UserIcon user={user} /></div>
         </div>
         </div>
       </Fragment>

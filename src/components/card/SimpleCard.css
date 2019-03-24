@@ -39,3 +39,9 @@
 .show {
   display: inline-block;
 }
+
+.user-position {
+  position: absolute;
+  top: 50px;
+  right: 15px;
+}
