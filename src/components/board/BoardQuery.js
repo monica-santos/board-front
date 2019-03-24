@@ -11,27 +11,6 @@ const BoardData = gql`
         id
         name
       }
-      lists {
-        id
-        name
-        cards {
-          id
-          name
-          description
-          user {
-            name
-          }
-          comments {
-            id
-            content
-            datetime
-            user {
-              id
-              name
-            }
-          }
-        }
-      }
     }
   }
 `

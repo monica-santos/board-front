@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { Mutation } from "react-apollo";
-import AddCardMutation from './AddCard'
+import AddCardMutation from './AddCardMutation'
 import './AddCard.css'
 
-export default class AddCard extends Component {
+class AddCard extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -13,6 +13,7 @@ export default class AddCard extends Component {
     this.toggleEditIcon = this.toggleEditIcon.bind(this)
     this.openDetails = this.openDetails.bind(this)
     this.handleCloseDetails = this.handleCloseDetails.bind(this)
+    this.saveCard = this.saveCard.bind(this)
   }
 
   toggleEditIcon() {
@@ -33,6 +34,12 @@ export default class AddCard extends Component {
     })
   }
 
+  saveCard(add) {
+    if (this.state.name.length > 2) {
+      add({ variables: { name: this.state.name, listId: this.props.listId } })
+    }
+  }
+
   render() {
     return (
       <Mutation
@@ -44,12 +51,13 @@ export default class AddCard extends Component {
               <form
                 onKeyDown={(e) => {
                   if (e.ctrlKey && e.keyCode === 13) {
-                    addCard({ variables: { name: this.state.name, listId: this.props.listId } })
+                  this.saveCard(addCard);
+                    
                   }
                 }}
                 onSubmit={e => {
                   e.preventDefault();
-                  addCard({ variables: { name: this.state.name, listId: this.props.listId } })
+                  this.saveCard(addCard);
                 }}
               >
                 <input
@@ -66,3 +74,5 @@ export default class AddCard extends Component {
     )
   }
 }
+
+export default AddCard

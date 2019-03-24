@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react'
 import './SimpleCard.css'
 import MdEdit from 'react-icons/lib/md/edit'
 
-export default class SimpleCard extends Component {
+class SimpleCard extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -57,3 +57,5 @@ export default class SimpleCard extends Component {
     )
   }
 }
+
+export default SimpleCard

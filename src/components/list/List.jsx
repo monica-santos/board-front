@@ -4,7 +4,7 @@ import './style.css'
 import SimpleCard from '../card/SimpleCard'
 import AddCard from '../addCard/AddCard'
 
-export default class List extends Component {
+class List extends Component {
   constructor(props) {
     super(props)
     this.state ={}
@@ -23,3 +23,5 @@ export default class List extends Component {
     )
   }
 }
+
+export default List
