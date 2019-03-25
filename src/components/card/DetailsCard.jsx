@@ -1,16 +1,35 @@
-import { Modal, Button } from 'react-bootstrap';
+import PropTypes from 'prop-types'
+import { Modal, Button, Form, FormControl } from 'react-bootstrap';
 import React, { Component } from 'react'
+// import FormControl from 'react-bootstrap/FormControl'
 
-export default class DetailsCard extends Component {
+class DetailsCard extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      ...props.content
+    }
+  }
   render() {
-    const { name, description, listName, user, comments, label } = this.props.content
+    console.log(this.state)
     return (
       <Modal show={this.props.showDetails} onHide={this.props.handleCloseDetails}>
-          <Modal.Header closeButton>
-            <Modal.Title>{name}</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>{description}</Modal.Body>
-        </Modal>
+        <Modal.Body>
+          <Form onSubmit={() => console.log(this.state)}>
+            <Form.Control type="text" value={this.state.name} />
+            <FormControl as="textarea" aria-label="With textarea" value={this.state.description} />
+            {/* { this.state.comments.map(comment => <Comentario comment={comment} /> )}
+            <AddComment /> */}
+            <Button type="submit">Salvar</Button>
+          </Form>
+        </Modal.Body>
+      </Modal>
     )
   }
 }
+
+DetailsCard.propTypes = {
+  content: PropTypes.object.isRequired
+}
+
+export default DetailsCard

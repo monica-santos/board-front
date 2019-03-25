@@ -1,7 +1,9 @@
 import React, { Component, Fragment } from 'react'
+import PropTypes from 'prop-types'
 import './SimpleCard.css'
 import MdEdit from 'react-icons/lib/md/edit'
 import UserIcon from '../user/UserIcon'
+import DetailsCard from './DetailsCard'
 
 class SimpleCard extends Component {
   constructor(props) {
@@ -35,27 +37,45 @@ class SimpleCard extends Component {
   }
 
   render() {
+    console.log(this.props)
     const { id, name, description, user } = this.props.content
+
+    const proptodetail = {
+      id,
+      name,
+      description,
+      user,
+      comments: [],
+      label: 'none'
+    }
 
     return (
       <Fragment>
         <div className="card"
           onMouseEnter={this.toggleEditIcon}
           onMouseLeave={this.toggleEditIcon}
-          onClick={() => this.openDetails(id)}
+          onClick={() => this.openDetails()}
         >
-        <div className="board-line">
-          <h2 className="card-title card-text">{name}</h2>
-          <MdEdit className={`edit-icon ${this.state.showIcon ? "show" : "hide"}`} />
+          <div className="board-line">
+            <h2 className="card-title card-text">{name}</h2>
+            <MdEdit className={`edit-icon ${this.state.showIcon ? "show" : "hide"}`} />
+          </div>
+          <div className="board-line">
+            <p className="card-description card-text">{description}</p>
+            <div className="user-position"><UserIcon user={user} /></div>
+          </div>
         </div>
-        <div className="board-line">
-          <p className="card-description card-text">{description}</p>
-          <div className="user-position"><UserIcon user={user} /></div>
-        </div>
-        </div>
+        <DetailsCard
+          showDetails={this.state.showDetails}
+          handleCloseDetails={this.handleCloseDetails}
+          content={proptodetail} />
       </Fragment>
     )
   }
+}
+
+SimpleCard.propTypes = {
+  content: PropTypes.object
 }
 
 export default SimpleCard
