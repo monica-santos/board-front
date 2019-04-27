@@ -1,12 +1,12 @@
 import gql from 'graphql-tag'
 
-const BoardData = gql`
+const BoardData = gql `
   {
     board {
       id
       name
       favorite
-      backgroundColor
+      backgroundImage
       users {
         id
         name

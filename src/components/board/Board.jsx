@@ -28,20 +28,25 @@ class Board extends Component {
         {({ loading, error, data }) => {
           if (loading) {
             return (
-            <div className='sweet-loading'>
+              <div className='sweet-loading'>
               <ClipLoader
                 css={override}
                 sizeUnit={"px"}
                 size={150}
                 color={'#123abc'}
                 loading={true}
-              />
+                />
             </div>
           )}
           if (error) return `Error! ${error.message}`;
           const { board } = data
+          const backgroundImage = require(`../../background-images/${board.backgroundImage}`);
           return (
-            <div className="board-container full" style={{ background: `${board.backgroundColor} no-repeat center center fixed` }}>
+            <div className="board-container full" style={
+              { backgroundImage: `url(${backgroundImage})`,
+                backgroundPosition: '50%',
+                backgroundSize: 'cover'
+              }}>
               <div className="board-header">
                 <h2>{ board.name }</h2>
                   { board.users.map(user => <UserIcon user={user} key={user.id} />) }
