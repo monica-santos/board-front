@@ -9,15 +9,6 @@ body {
     width: 100%;
 }
 
-.full {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 15px;
-}
-
 .board-content {
     height: 100%;
     overflow: auto;
@@ -26,16 +17,6 @@ body {
 .board-line {
     display: flex;
     width: 100%;
-}
-
-.board-footer {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    padding: 1rem;
-    background-color: rgba(223, 227, 230, .8);
-    text-align: center;
 }
 
 ::-webkit-scrollbar {
