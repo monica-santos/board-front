@@ -26,7 +26,7 @@ class SimpleCard extends Component {
     this.setState({
       ...this.state,
       showDetails: true
-    })
+    })   
   }
 
   handleCloseDetails() {
@@ -37,16 +37,15 @@ class SimpleCard extends Component {
   }
 
   render() {
-    console.log(this.props)
-    const { id, name, description, user } = this.props.content
-
-    const proptodetail = {
+    const { id, name, description, user, listId, comments, label } = this.props.content
+    const propToDetail = {
       id,
       name,
       description,
       user,
-      comments: [],
-      label: 'none'
+      listId,
+      comments,
+      label
     }
 
     return (
@@ -66,9 +65,10 @@ class SimpleCard extends Component {
           </div>
         </div>
         <DetailsCard
+          refresh={this.props.refresh}
           showDetails={this.state.showDetails}
           handleCloseDetails={this.handleCloseDetails}
-          content={proptodetail} />
+          content={propToDetail} />
       </Fragment>
     )
   }

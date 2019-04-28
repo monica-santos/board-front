@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Mutation } from "react-apollo";
-import AddCardMutation from './AddCardMutation'
+import AddOrUpdateCard from './AddOrUpdateCardMutation'
 import './AddCard.css'
 
 class AddCard extends Component {
@@ -44,20 +44,20 @@ class AddCard extends Component {
     return (
       <Mutation
         onCompleted={this.props.refresh}
-        mutation={AddCardMutation}>
-        {(addCard, {data}) => (
+        mutation={AddOrUpdateCard}>
+        {(addOrUpdateCard, {data}) => (
           <div className="add-card card">
             <div className="board-line">
               <form
                 onKeyDown={(e) => {
                   if (e.ctrlKey && e.keyCode === 13) {
-                  this.saveCard(addCard);
+                  this.saveCard(addOrUpdateCard);
                     
                   }
                 }}
                 onSubmit={e => {
                   e.preventDefault();
-                  this.saveCard(addCard);
+                  this.saveCard(addOrUpdateCard);
                 }}
               >
                 <input

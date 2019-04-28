@@ -1,6 +1,6 @@
 import gql from 'graphql-tag'
 
-const ContentData = gql`
+const ContentData = gql `
   {
     lists {
       id
@@ -10,6 +10,7 @@ const ContentData = gql`
         name
         description
         user {
+          id
           name
           username
           email
